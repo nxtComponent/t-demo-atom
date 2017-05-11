@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>t-demo-atom test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../t-demo-atom.html">
+  </head>
+  <body>
+
+    <test-fixture id="basic">
+      <template>
+        <t-demo-atom></t-demo-atom>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('t-demo-atom', function() {
+
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 't-demo-atom');
+        });
+
+      });
+    </script>
+  </body>
+</html>
