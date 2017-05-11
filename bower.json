@@ -2,15 +2,7 @@
   "name": "t-demo-atom",
   "main": "t-demo-atom.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
-  },
-  "devDependencies": {
-    "t-button": "atomelements/t-button#^1.0.0",
-
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
-    "web-component-tester": "^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "polymer": "Polymer/polymer#^1.4.0",
     "dynamic-data-source": "atomproject/dynamic-data-source#^1.0.0",
     "highlightjs-element": "atomproject/highlightjs-element#^1.0.0",
     "code-generator-behavior": "atomproject/code-generator-behavior#^1.0.0",
@@ -25,5 +17,12 @@
     "t-device-view": "atomelements/t-device-view#^1.0.0",
     "t-component-panel": "atomproject/t-component-panel#^1.0.0",
     "t-shared-components": "atomelements/t-shared-components#^1.0.0"
+  },
+  "devDependencies": {
+    "t-button": "atomelements/t-button#^1.0.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }
 }
