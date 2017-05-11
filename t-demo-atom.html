@@ -177,23 +177,25 @@
         }
       },
 
-      attached : function(){
-          this._initPropertyBinding();
-          this.setDemoComponent();
+      attached: function () {
+        this._initPropertyBinding();
+        this.setDemoComponent();
       },
 
       _initPropertyBinding: function () {
-        
-        if(!this.elName)
+
+        if (!this.elName)
           return;
 
-        var elm = this.$.deviceView.querySelector(this.elName); 
+        var elm = this.$.deviceView.querySelector(this.elName);
         // this.$.demo.contentWindow.document.querySelector(this.elName);
         if (!elm)
           return;
 
         var dataFields = {}, propertyFields = {};
         for (var pname in elm.properties) {
+          if(pname.startsWith("_"))
+             continue;
           var p = elm.properties[pname], pt = p.type.name.toLowerCase();
           var translate = {
             'array': 'object'
@@ -204,12 +206,12 @@
             type: translate[pt] || pt,
           };
 
-          if(elm[pname]){
-            
+          if (elm[pname]) {
+
             obj.value = elm[pname];
-            if((pt=="array"|| pt=="object") && typeof(obj.value) =="string" )
-               obj.value = JSON.parse(obj.value);
-               
+            if ((pt == "array" || pt == "object") && typeof (obj.value) == "string")
+              obj.value = JSON.parse(obj.value);
+
           }
           else if (p.value != undefined) {
             obj.value = p.value
@@ -257,7 +259,7 @@
         }
 
 
-        
+
 
       },
 
@@ -290,7 +292,7 @@
 
       // refresh the iframe of the component demo
       refresh: function () {
-        if (!this._demoComponent){ // || !this.$.demo) {
+        if (!this._demoComponent) { // || !this.$.demo) {
           return;
         }
 
@@ -366,8 +368,8 @@
       applyProperties: function () {
         //get the custom properties of the element
         var properties = this._demoComponent.properties;
-        if(!properties)
-        return;
+        if (!properties)
+          return;
         var propertyKeys = Object.keys(properties);
         var panelProperties = this.getPanelProperties();
 
@@ -441,7 +443,7 @@
         dsTarget = this._dsTargets[key];
 
         if (!dsTarget) //||!this.$.demo.contentWindow.document.contains(dsTarget)) {
-          {
+        {
           dsTarget = this._dsTargets[key] = this.createDataSource(key);
         }
 
