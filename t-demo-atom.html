@@ -205,7 +205,11 @@
           };
 
           if(elm[pname]){
+            
             obj.value = elm[pname];
+            if((pt=="array"|| pt=="object") && typeof(obj.value) =="string" )
+               obj.value = JSON.parse(obj.value);
+               
           }
           else if (p.value != undefined) {
             obj.value = p.value
