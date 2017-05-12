@@ -28,3 +28,38 @@ Using this component we can test the properties of component.
     </t-demo-atom> 
 
 ```
+
+> Note - `el-name` value should be component tag name.  
+
+#### Update default property value in setting section
+
+```html
+<t-demo-atom id="container"
+            el-name="t-footer"  >
+        
+        <!--element to test-->
+         <t-footer><t-footer>
+
+    </t-demo-atom> 
+
+    <script>
+
+        var container = document.querySelector("#container");
+        var elm = container.querySelector("t-footer")
+
+        elm.sections = {
+            name : "footer",
+
+            links : [
+                {
+                    title : "About us",
+                    href : "/aboutus"
+                }
+            ]
+        };
+
+        //Below method ensure the updated default value display in setting section
+        container.refreshSetting();
+
+    </script>
+```
