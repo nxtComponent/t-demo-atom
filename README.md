@@ -1,38 +1,30 @@
 # \<t-demo-atom\>
 
+Using this component we can test the properties of component.
 
+### Installation
 
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
-
-## Viewing Your Application
-
-```
-$ polymer serve
+```bash
+    npm install --save nxtComponent/t-demo-atom
 ```
 
-## Building Your Application
+### References
 
-```
-$ polymer build
-```
-
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
-
-```
-$ polymer serve build/bundled
+```html
+    <link rel="import" href="../../t-demo-atom.html">
 ```
 
-## Running Tests
+### Simple Use
+
+```html
+
+    <t-demo-atom 
+            el-name="t-button" 
+            css-variables="button-primary-bg-color,button-primary-text-color" >
+        
+        <!--element to test-->
+         <t-button class="primary" raised label="label"></t-button>
+
+    </t-demo-atom> 
 
 ```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
