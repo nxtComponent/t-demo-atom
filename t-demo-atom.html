@@ -111,6 +111,7 @@
     </paper-drawer-panel>
 
     <content></content>
+
   </template>
   <script>
     Polymer({
@@ -128,6 +129,7 @@
         elDispName: String,
         elHtml: String,
         elDependencies: Array,
+        cssVariables:String,
         demoFile: String,
         absoluteBaseurl: String,
         baseurl: {
@@ -222,9 +224,7 @@
           else
             dataFields[pname] = obj;
         }
-
-        this.$.componentPanel.sections = this.$.componentPanel.getSections(
-          [
+        var propertyListing = [
             {
               name: 'Data',
               fields: dataFields
@@ -233,7 +233,34 @@
               name: 'Properties',
               fields: propertyFields
             }
-          ]);
+          ];
+
+        var cssVarFields = {};  
+        if(this.cssVariables){
+           var lst = this.cssVariables.split(',');
+           for ( var i in lst){
+                var cssVarName = lst[i];
+                if(cssVarName){
+                     if(!cssVarName.startsWith("--"))
+                         cssVarName = "--" + cssVarName;
+                     
+                     cssVarFields[cssVarName]={
+                           name: cssVarName,
+                           type: "string",
+                           value : ""
+                     };
+                      
+                }
+           }
+             
+             propertyListing.push({
+               name : "CSS Variable",
+               fields : cssVarFields
+             });
+
+        }
+
+        this.$.componentPanel.sections = this.$.componentPanel.getSections(propertyListing);
 
       },
 
@@ -412,6 +439,15 @@
       updatePath: function (event) {
         var path = event.detail.path;
         var value = event.detail.value;
+
+        if(path && path.startsWith("--")){
+              if(this._demoComponent){
+                this._demoComponent.customStyle[path] = value;
+                this._demoComponent.updateStyles();
+              }
+
+              return;
+        }
 
         if (!this._demoComponent || !path ||
           value === undefined || value === null) {
