@@ -198,7 +198,8 @@
         for (var pname in elm.properties) {
           if(pname.startsWith("_"))
              continue;
-          var p = elm.properties[pname], pt = p.type.name.toLowerCase();
+          var p = elm.properties[pname], 
+            pt = typeof p =="function"? p.name : p.type.name.toLowerCase();
           var translate = {
             'array': 'object'
           }
