@@ -11,7 +11,7 @@ Using this component we can test the properties of component.
 ### References
 
 ```html
-    <link rel="import" href="../../t-demo-atom.html">
+    <link rel="import" href="../../t-demo-atom/t-demo-atom.html">
 ```
 
 ### Simple Use
